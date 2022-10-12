@@ -2,7 +2,7 @@
    require('config/config.php');
    require('config/db.php');
 
-   $query = 'SELECT * FROM person ORDER BY personid DESC';
+   $query = 'SELECT * FROM person ORDER BY logdt DESC';
    $result = mysqli_query($conn, $query);
    $persons = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
@@ -27,9 +27,9 @@
                 <?php foreach($persons as $person) : ?>
                     <tr>
                     <th scope="row"><?php echo $person['pid'];?></th>
-                    <td><?php echo $person['lastname'];?></td>
-                    <td><?php echo $person['firstname'];?></td>
-                    <td><?php echo $person['address'];?></td>
+                    <td><?php echo $person['LName'];?></td>
+                    <td><?php echo $person['FName'];?></td>
+                    <td><?php echo $person['Address'];?></td>
                     <td><?php echo $person['logdt'];?></td>
                     </tr>
                 <?php endforeach; ?>   
